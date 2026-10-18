@@ -149,7 +149,9 @@ export default function MembersTable({
             "bg-gray-500": normalizedStatus === "deactivated",
           })}
         />
-        <span className="capitalize text-xs font-medium">{normalizedStatus}</span>
+        <span className="capitalize text-xs font-medium">
+          {normalizedStatus}
+        </span>
       </div>
     );
   };
@@ -186,7 +188,9 @@ export default function MembersTable({
               <Button
                 variant="outline"
                 size="icon"
-                aria-label={inactive ? "Reactivate member" : "Deactivate member"}
+                aria-label={
+                  inactive ? "Reactivate member" : "Deactivate member"
+                }
                 className={cn(
                   "h-8 w-8 p-1 border-gray-200 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors",
                   inactive
@@ -436,7 +440,8 @@ export default function MembersTable({
 
               <Select
                 value={
-                  (table.getColumn("status")?.getFilterValue() as string) || "all"
+                  (table.getColumn("status")?.getFilterValue() as string) ||
+                  "all"
                 }
                 onValueChange={(v) => {
                   const val = v === "all" ? "" : v;
@@ -475,7 +480,10 @@ export default function MembersTable({
                           key={h.id}
                           className="text-[#667085] dark:text-zinc-400 font-medium"
                         >
-                          {flexRender(h.column.columnDef.header, h.getContext())}
+                          {flexRender(
+                            h.column.columnDef.header,
+                            h.getContext()
+                          )}
                         </TableHead>
                       ))}
                     </TableRow>
